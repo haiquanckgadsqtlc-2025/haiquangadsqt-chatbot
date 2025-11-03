@@ -87,31 +87,7 @@
       © <span id="y"></span> • Chatbot Hải quan cửa khẩu Ga ĐSQT Lào Cai
     </div>
   </footer>
-
-  <!-- Coze oversea SDK + init -->
-  <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
-  <script>
-    (function(){
-      var BOT_ID = '7568420835489529863';
-      var TOKEN  = 'pat_7D7MYiOUqbPeoYEyzTU4aIQlO2TLtiPYDeF1TdnB3RV6W3DyEQeIAwOuXieOYXp5';
-
-      function init(){
-        if(!window.CozeWebSDK){ return setTimeout(init, 200); }
-        new CozeWebSDK.WebChatClient({
-          config: { bot_id: BOT_ID },
-          componentProps: { title: 'Coze' },
-          auth: {
-            type: 'token',
-            token: TOKEN,
-            onRefreshToken: function () { return TOKEN; }
-          }
-        });
-      }
-      init();
-      document.getElementById('y').textContent = new Date().getFullYear();
-    })();
-  </script>
-  <!-- ĐÚNG: oversea (không có chữ r) -->
+<!-- ĐÚNG: oversea (không có chữ r) -->
 <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
 <script>
   (function () {
@@ -152,5 +128,4 @@
 </body>
 </html>
 
-</body>
-</html>
+ 
