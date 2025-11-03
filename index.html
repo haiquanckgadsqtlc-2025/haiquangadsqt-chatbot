@@ -92,39 +92,18 @@
 <script>
   (function () {
     var BOT_ID = '7568420835489529863';
-    var TOKEN  = 'pat_7D7MYiOUqbPeoYEyzTU4aIQlO2TLtiPYDeF1TdnB3RV6W3DyEQeIAwOuXieOYXp5';
 
-    function log(){ try{ console.log.apply(console, ['[COZE]', ...arguments]); }catch(e){} }
-
-    function init() {
-      if (!window.CozeWebSDK) {
-        log('SDK chưa sẵn sàng, thử lại sau 200ms...');
-        return setTimeout(init, 200);
-      }
-      try {
-        log('Khởi tạo widget với BOT_ID:', BOT_ID);
-        new CozeWebSDK.WebChatClient({
-          config: { bot_id: BOT_ID },
-          componentProps: { title: 'Coze' },
-          auth: {
-            type: 'token',
-            token: TOKEN,
-            onRefreshToken: function () { log('Refresh token'); return TOKEN; }
-          }
-        });
-        log('Khởi tạo xong. Bubble sẽ xuất hiện ở góc dưới.');
-      } catch (err) {
-        console.error('[COZE] Lỗi khởi tạo:', err);
-      }
+    function init(){
+      if(!window.CozeWebSDK){ return setTimeout(init, 200); }
+      new CozeWebSDK.WebChatClient({
+        config: { bot_id: BOT_ID },
+        componentProps: { title: 'Trợ lý Hải quan' }
+      });
     }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
+    init();
   })();
 </script>
+
 </body>
 </html>
 
