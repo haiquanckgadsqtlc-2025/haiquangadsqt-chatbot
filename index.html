@@ -92,17 +92,24 @@
 <script>
   (function () {
     var BOT_ID = '7568420835489529863';
+    var TOKEN  = 'pat_7D7MYiOUqbPeoYEyzTU4aIQlO2TLtiPYDeF1TdnB3RV6W3DyEQeIAwOuXieOYXp5';
 
-    function init(){
-      if(!window.CozeWebSDK){ return setTimeout(init, 200); }
+    function init() {
+      if (!window.CozeWebSDK) return setTimeout(init, 200);
       new CozeWebSDK.WebChatClient({
         config: { bot_id: BOT_ID },
-        componentProps: { title: 'Trợ lý Hải quan' }
+        componentProps: { title: 'Trợ lý Hải quan' },
+        auth: {
+          type: 'token',
+          token: TOKEN,
+          onRefreshToken: function () { return TOKEN; } // demo
+        }
       });
     }
     init();
   })();
 </script>
+
 
 </body>
 </html>
